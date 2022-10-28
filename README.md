@@ -12,14 +12,14 @@ npm install
 
 ## Note
 
-- To toggle between _single_[0] or _multiple_[1] tasks to display, in the file `assets/js/default.js` on line `__45__`.
+- To toggle between **single**[0] or **multiple**[1] tasks to display, in the file `assets/js/default.js` on line **`45`**.
 
 ```javascript
 const tasksToDisplay = ["single", "multiple"][0]; // Single
 const tasksToDisplay = ["single", "multiple"][1]; // Multiple
 ```
 
-- To **TEST** our application using **jasmine**, **comment** out lines `__102__` and `__103__` both functions in the file path `assets/js/default.js`
+- To **TEST** our application using **jasmine**, **comment** out lines **`102`** and **`103`** both functions in the file path `assets/js/default.js`
 
 ```javascript
 /*
@@ -31,7 +31,7 @@ const tasksToDisplay = ["single", "multiple"][1]; // Multiple
 and navigate to the _project dir in the terminal_ and run the following code.
 
 ```javascript
-    npm run test
+npm run test
 ```
 
 #### Test Cases
@@ -46,7 +46,7 @@ File path `spec/tasks.spec.js`
    a. Completed;
    b. Uncompleted;
 
-- To **Run** our application **uncomment** lines `__102__` and `__103__` both functions in the file path `assets/js/default.js`
+- To **Run** our application **uncomment** lines **`102`** and **`103`** both functions in the file path `assets/js/default.js`
 
 ```javascript
 getTasks();
