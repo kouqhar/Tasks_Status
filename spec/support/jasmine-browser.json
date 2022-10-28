@@ -1,0 +1,24 @@
+{
+  "srcDir": "assets/js",
+  "srcFiles": [
+    "**/*.js",
+    "**/*.?(m)js"
+  ],
+  "specDir": "spec",
+  "specFiles": [
+    "**/*[sS]pec.js",
+    "**/*[Ss]pec.?(m)js"
+  ],
+  "helpers": [
+    "helpers/**/*.js",
+    "helpers/asyncAwait.js"
+  ],
+  "env": {
+    "stopSpecOnExpectationFailure": false,
+    "stopOnSpecFailure": false,
+    "random": true
+  },
+  "browser": {
+    "name": "firefox"
+  }
+}

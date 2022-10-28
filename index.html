@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+
+    <!-- Test Files -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/4.4.0/jasmine.min.js"
+      integrity="sha512-J7vAUqx1dE+MfaHWdl1JNWI8H1cVDZnNz/TMoyOC3e71FaceWXUN+gu8+Pe5NJId5kx/lyHCNdyinK6vjtJMBQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/4.4.0/jasmine-html.min.js"
+      integrity="sha512-4tfBtTlBcXmFzpIbgFqXzawRSjneY5TTcBS2vk+asILbMxav31ASyY/ms+rCDtQVE1JcoyXxLg0CY8tMFuSVbg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/4.4.0/boot0.min.js"
+      integrity="sha512-cRuvyBugzOgyXyrrLBRjtV65ar5Cw7HdzDWunnf7CqxEICXwBWFhDnVeGRpp3zKUFCFiGsdrVewCJIMa+jMZpg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script defer src="./assets/js/default.js"></script>
+    <script defer src="./spec/tasks.spec.js"></script>
+    <title>Task Status</title>
+  </head>
+  <body>
+    <!-- Underscore(_) naming convention for dynamic use in 
+        frameworks cause hyphens(-) don't work with css module. -->
+
+    <main class="page_wrapper">
+      <header>
+        <h1>Tasks<span id="stats"></span>Completed !!!</h1>
+      </header>
+
+      <section class="tasks_container" id="tasks"></section>
+    </main>
+
+    <!-- <script src="./assets/js/default.js"></script> -->
+  </body>
+</html>
