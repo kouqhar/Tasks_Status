@@ -108,13 +108,9 @@ renderTasks();
 // Listen to individual click event if task is on the page
 const tasksDOM = document.querySelectorAll("#tasks .task_container");
 if (tasksDOM !== null) {
-  tasksDOM.forEach((task) => {
+  tasksDOM.forEach((task, index) => {
     task.addEventListener("click", function (e) {
-      let taskId;
-
-      if (e.target !== this)
-        taskId = e.target.parentNode.parentElement.dataset["id"];
-      else taskId = e.target.dataset["id"];
+      let taskId = tasksDOM[index].dataset["id"];
 
       tasksArr = storedTasks.map((task) => {
         if (task.id === Number(taskId))
