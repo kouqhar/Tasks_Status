@@ -111,8 +111,8 @@ body {
 .page_wrapper .tasks_container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(370px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+  -ms-grid-columns: (minmax(350px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   place-items: center;
   min-height: 70vh;
   max-height: 80vh;
@@ -137,8 +137,8 @@ body {
 }
 
 .page_wrapper .tasks_container .task_container {
-  height: 120px;
-  width: 370px;
+  height: 100px;
+  width: 350px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

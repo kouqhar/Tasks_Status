@@ -107,7 +107,7 @@ $border-color: #aaa;
 
     .tasks_container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         place-items: center;
         min-height: 70vh;
         max-height: 80vh;
@@ -131,7 +131,7 @@ $border-color: #aaa;
         }
 
         .task_container {
-            @include heightWidth(120px, 370px);
+            @include heightWidth(100px, 350px);
             display: flex;
             justify-content: space-between;
             align-items: center;
