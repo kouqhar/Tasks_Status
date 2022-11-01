@@ -137,7 +137,7 @@ body {
 }
 
 .page_wrapper .tasks_container .task_container {
-  height: 100px;
+  height: 120px;
   width: 350px;
   display: -webkit-box;
   display: -ms-flexbox;

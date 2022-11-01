@@ -42,7 +42,7 @@ const createTask = ({ completed, userId, todo, id }) => {
   };
 };
 
-const tasksToDisplay = ["single", "multiple"][1];
+const tasksToDisplay = ["single", "multiple"][0];
 const loadData = async (tasks) => {
   if (tasksToDisplay.toLowerCase() === "single".toLowerCase()) {
     const task = await singleTask(tasks);

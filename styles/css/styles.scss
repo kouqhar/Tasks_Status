@@ -131,7 +131,7 @@ $border-color: #aaa;
         }
 
         .task_container {
-            @include heightWidth(100px, 350px);
+            @include heightWidth(120px, 350px);
             display: flex;
             justify-content: space-between;
             align-items: center;
