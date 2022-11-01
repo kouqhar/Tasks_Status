@@ -12,14 +12,14 @@ npm install
 
 ## Note
 
-- To toggle between **single**[0] or **multiple**[1] tasks, in the file `assets/js/default.js` on line **`45`**.
+- To toggle between **single**[0] or **multiple**[1] tasks, in the file `script/js/default.js` on line **`45`**.
 
 ```javascript
 const tasksToDisplay = ["single", "multiple"][0]; // Single
 const tasksToDisplay = ["single", "multiple"][1]; // Multiple
 ```
 
-- To **Run** our application **uncomment** lines **`102`** and **`103`** both functions in the file path `assets/js/default.js`
+- To **Run** our application **uncomment** lines **`102`** and **`103`** both functions in the file path `script/js/default.js`
 
 ```javascript
 getTasks();
@@ -28,7 +28,7 @@ renderTasks();
 
 and open project with live server or `index.html`
 
-- To **TEST** our application using **jasmine**, **comment** out lines **`102`** and **`103`** both functions in the file path `assets/js/default.js`
+- To **TEST** our application using **jasmine**, **comment** out lines **`102`** and **`103`** both functions in the file path `script/js/default.js`
 
 ```javascript
 /*
