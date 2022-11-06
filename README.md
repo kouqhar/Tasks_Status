@@ -14,16 +14,16 @@ npm install
 
 - To toggle between **single** or **multiple** tasks, locate the dropdown option from the `homepage` and select either of the options listed.
 
-- To **Run** our application **uncomment** lines **`102`** and **`103`** both functions in the file path `script/js/default.js`
+- To **Run** our application **uncomment** lines **`100`** and **`101`** both functions in the file path `script/js/default.js`
 
 ```javascript
 getTasks();
 renderTasks();
 ```
 
-and open project with live server or `index.html`
+and open project with `live server` or `index.html`
 
-- To **TEST** our application using **jasmine**, **comment** out lines **`102`** and **`103`** both functions in the file path `script/js/default.js`
+- To **TEST** our application using **jasmine**, **comment** out lines **`100`** and **`101`** both functions in the file path `script/js/default.js`
 
 ```javascript
 /*
