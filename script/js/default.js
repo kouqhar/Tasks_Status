@@ -10,12 +10,9 @@ const fetchTasks = async () => {
   return taskResponse.todos;
 };
 
-// Generate a single random task
-const singleTask = async (tasks) => {
-  const tasksLength = tasks.length - 1;
-  const generateRandomNumber = Math.floor(
-    Math.random() * (tasksLength - 0) // Zero because array is 0 based index
-  );
+// Generate single and random task
+const singleTask = (tasks) => {
+  const generateRandomNumber = Math.floor(Math.random() * (tasks.length - 1));
   return tasks[generateRandomNumber];
 };
 
@@ -24,7 +21,6 @@ const multipleTasks = async () => await fetchTasks();
 
 // Save to localStorage (dummy db)
 const saveToDummyDb = (dbName, dbArr) => {
-  localStorage.removeItem(dbName);
   localStorage.setItem(dbName, JSON.stringify(dbArr));
   location.reload();
 };
@@ -42,10 +38,13 @@ const createTask = ({ completed, userId, todo, id }) => {
   };
 };
 
-const tasksToDisplay = ["single", "multiple"][0];
-const loadData = async (tasks) => {
+// Set number of task to multiple by default
+const tasksToDisplay = localStorage.getItem("taskSelectionDom") || "multiple";
+const previousTasksDisplayed = localStorage.getItem("taskSelection");
+
+const loadData = (tasks) => {
   if (tasksToDisplay.toLowerCase() === "single".toLowerCase()) {
-    const task = await singleTask(tasks);
+    const task = singleTask(tasks);
     tasksArr = [createTask(task)];
   } else tasksArr = tasks.map((task) => createTask(task));
 };
@@ -56,13 +55,12 @@ const getTasks = async () => {
   // If no tasks in Db dummyDb(localStorage), create tasks and store , else
   // Use tasks from db
   if (storedTasks !== null) {
-    const previousTasksDisplayed = localStorage.getItem("taskSelection");
     if (tasksToDisplay !== previousTasksDisplayed) {
-      await loadData(tasks);
+      loadData(tasks);
       saveToDummyDb("tasks", tasksArr);
     }
   } else {
-    await loadData(tasks);
+    loadData(tasks);
     saveToDummyDb("tasks", tasksArr);
   }
   localStorage.setItem("taskSelection", tasksToDisplay);
@@ -70,7 +68,6 @@ const getTasks = async () => {
 
 // Render tasks from localStorage (dummy db "/GET")
 const renderTasks = () => {
-  tasksContainer.innerHTML = "";
   storedTasks.forEach(({ id, title, projectId, description, checked }) => {
     const imgStr = checked
       ? "./assets/images/check.svg"
@@ -98,6 +95,7 @@ const renderTasks = () => {
 };
 
 /* ********** COMMENT BELOW FUNCTIONS TO RUN TEST ********* */
+/* ********** UN-COMMENT BELOW FUNCTIONS TO RUN APPLICATION ********* */
 
 getTasks();
 renderTasks();
@@ -109,18 +107,27 @@ renderTasks();
 const tasksDOM = document.querySelectorAll("#tasks .task_container");
 if (tasksDOM !== null) {
   tasksDOM.forEach((task, index) => {
-    task.addEventListener("click", function (e) {
+    task.addEventListener("click", () => {
       let taskId = tasksDOM[index].dataset["id"];
 
-      tasksArr = storedTasks.map((task) => {
-        if (task.id === Number(taskId))
-          return { ...task, checked: !task.checked };
-        else return task;
-      });
+      tasksArr = [...storedTasks];
+      if (tasksArr[index].id === Number(taskId))
+        tasksArr[index].checked = !storedTasks[index].checked;
 
       // POST tasks to localStorage (dummy db "/Save")
       saveToDummyDb("tasks", tasksArr);
     });
+  });
+}
+
+// Listen to change on the number of tasks to display
+const tasksToDisplayDropdown = document.querySelector("#tasks_options");
+if (tasksToDisplayDropdown !== null) {
+  tasksToDisplayDropdown.value = previousTasksDisplayed;
+  tasksToDisplayDropdown.addEventListener("change", (e) => {
+    const dropdownValue = e.target.value;
+    localStorage.setItem("taskSelectionDom", dropdownValue);
+    location.reload();
   });
 }
 
@@ -129,12 +136,11 @@ const statusTestTask = async () => {
   const tasks = await fetchTasks();
   const tasksLength = tasks.length;
   const completedTasks = tasks.filter(({ completed }) => completed).length;
-  const inCompletedTasks = tasks.filter(({ completed }) => !completed).length;
-  return { tasksLength, completedTasks, inCompletedTasks };
+  const unCompletedTasks = tasks.filter(({ completed }) => !completed).length;
+  return { tasksLength, completedTasks, unCompletedTasks };
 };
 
 const singleTestTask = async () => {
   const tasks = await fetchTasks();
-  const task = await singleTask(tasks);
-  return [task];
+  return [singleTask(tasks)];
 };

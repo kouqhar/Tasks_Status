@@ -12,12 +12,7 @@ npm install
 
 ## Note
 
-- To toggle between **single**[0] or **multiple**[1] tasks, in the file `script/js/default.js` on line **`45`**.
-
-```javascript
-const tasksToDisplay = ["single", "multiple"][0]; // Single
-const tasksToDisplay = ["single", "multiple"][1]; // Multiple
-```
+- To toggle between **single** or **multiple** tasks, locate the dropdown option from the `homepage` and select either of the options listed.
 
 - To **Run** our application **uncomment** lines **`102`** and **`103`** both functions in the file path `script/js/default.js`
 

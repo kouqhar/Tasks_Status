@@ -1,3 +1,15 @@
+body, .page_wrapper .display_option, .page_wrapper .tasks_container .task_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 /* Box sizing rules */
 *,
 *::before,
@@ -74,15 +86,6 @@ body {
   height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: #eee;
 }
 
@@ -95,8 +98,8 @@ body {
 
 .page_wrapper header h1 {
   text-align: center;
-  -webkit-margin-after: 1.5rem;
-          margin-block-end: 1.5rem;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 
 .page_wrapper header h1 span {
@@ -106,6 +109,21 @@ body {
   border-radius: .5rem;
   padding: .3rem 1rem;
   margin-inline: .3rem;
+}
+
+.page_wrapper .display_option {
+  font-size: 1.35rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-block: 1rem;
+}
+
+.page_wrapper .display_option select {
+  text-align: center;
+  padding: .35em 1.55em;
+  cursor: pointer;
 }
 
 .page_wrapper .tasks_container {
@@ -139,15 +157,9 @@ body {
 .page_wrapper .tasks_container .task_container {
   height: 120px;
   width: 350px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: #fff;
   border-radius: .5rem;
   padding: .5rem;

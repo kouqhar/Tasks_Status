@@ -1,3 +1,17 @@
+$base-white: #fff;
+$border-color: #aaa;
+
+@mixin heightWidth($height : 100%, $width : 100%) {
+    height: $height;
+    width: $width;
+}
+
+%displayFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Box sizing rules */
 *,
 *::before,
@@ -68,21 +82,11 @@ select {
 
 /* Set core body defaults */
 body {
+    @extend %displayFlex;
     height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #eee;
-}
-
-$base-white: #fff;
-$border-color: #aaa;
-
-@mixin heightWidth($height : 100%, $width : 100%) {
-    height: $height;
-    width: $width;
 }
 
 .page_wrapper {
@@ -93,7 +97,7 @@ $border-color: #aaa;
 
     header h1 {
         text-align: center;
-        margin-block-end: 1.5rem;
+        margin-block-start: 1em;
 
         span {
             font-size: 70%;
@@ -102,6 +106,19 @@ $border-color: #aaa;
             border-radius: .5rem;
             padding: .3rem 1rem;
             margin-inline: .3rem;
+        }
+    }
+
+    .display_option {
+        @extend %displayFlex;
+        font-size: 1.35rem;
+        flex-direction: column;
+        margin-block: 1rem;
+
+        select {
+            text-align: center;
+            padding: .35em 1.55em;
+            cursor: pointer;
         }
     }
 
@@ -132,9 +149,8 @@ $border-color: #aaa;
 
         .task_container {
             @include heightWidth(120px, 350px);
-            display: flex;
+            @extend %displayFlex;
             justify-content: space-between;
-            align-items: center;
             background-color: $base-white;
             border-radius: .5rem;
             padding: .5rem;

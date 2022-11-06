@@ -15,13 +15,13 @@ describe("Database should respond with ", function () {
 // Get completed and uncompleted tasks
 describe("Number of tasks - ", function () {
   it("Completed;", async function () {
-    const { tasksLength, completedTasks, inCompletedTasks } =
+    const { tasksLength, completedTasks, unCompletedTasks } =
       await statusTestTask();
-    expect(completedTasks).toEqual(tasksLength - inCompletedTasks);
+    expect(completedTasks).toEqual(tasksLength - unCompletedTasks);
   });
   it("Uncompleted;", async function () {
-    const { tasksLength, completedTasks, inCompletedTasks } =
+    const { tasksLength, completedTasks, unCompletedTasks } =
       await statusTestTask();
-    expect(inCompletedTasks).toEqual(tasksLength - completedTasks);
+    expect(unCompletedTasks).toEqual(tasksLength - completedTasks);
   });
 });
