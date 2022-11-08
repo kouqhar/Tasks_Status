@@ -6,7 +6,7 @@ let tasksArr = [];
 // Fetch data from api
 const fetchTasks = async () => {
   try {
-    const taskUrl = await fetch("https://dummyjson.com/todoss");
+    const taskUrl = await fetch("https://dummyjson.com/todos");
     const taskResponse = await taskUrl.json();
     return taskResponse.todos;
   } catch (err) {
