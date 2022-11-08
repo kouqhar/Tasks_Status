@@ -5,9 +5,13 @@ let tasksArr = [];
 
 // Fetch data from api
 const fetchTasks = async () => {
-  const taskUrl = await fetch("https://dummyjson.com/todos");
-  const taskResponse = await taskUrl.json();
-  return taskResponse.todos;
+  try {
+    const taskUrl = await fetch("https://dummyjson.com/todoss");
+    const taskResponse = await taskUrl.json();
+    return taskResponse.todos;
+  } catch (err) {
+    console.log(err.message);
+  }
 };
 
 // Generate single and random task
@@ -50,20 +54,24 @@ const loadData = (tasks) => {
 };
 
 const getTasks = async () => {
-  let tasks = await multipleTasks();
+  try {
+    let tasks = await multipleTasks();
 
-  // If no tasks in Db dummyDb(localStorage), create tasks and store , else
-  // Use tasks from db
-  if (storedTasks !== null) {
-    if (tasksToDisplay !== previousTasksDisplayed) {
+    // If no tasks in Db dummyDb(localStorage), create tasks and store , else
+    // Use tasks from db
+    if (storedTasks !== null) {
+      if (tasksToDisplay !== previousTasksDisplayed) {
+        loadData(tasks);
+        saveToDummyDb("tasks", tasksArr);
+      }
+    } else {
       loadData(tasks);
       saveToDummyDb("tasks", tasksArr);
     }
-  } else {
-    loadData(tasks);
-    saveToDummyDb("tasks", tasksArr);
+    localStorage.setItem("taskSelection", tasksToDisplay);
+  } catch (err) {
+    console.log(err);
   }
-  localStorage.setItem("taskSelection", tasksToDisplay);
 };
 
 // Render tasks from localStorage (dummy db "/GET")
